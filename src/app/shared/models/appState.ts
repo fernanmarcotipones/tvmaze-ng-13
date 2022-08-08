@@ -1,4 +1,4 @@
-import { ShowsState } from "../models/show";
+import { ShowsState } from "./show";
 
 export interface AppState {
   shows: ShowsState;

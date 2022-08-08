@@ -1,11 +1,18 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Show } from "../models/show";
 
 @Injectable()
 export class ShowService {
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  // public getAllUsers(): Observable<User[]> {
-  //   return this.httpClient.get<User[]>("assets/data/users.json");
-  // }
+  public getShows(): Observable<Show[]> {
+    return this.httpClient.get<Show[]>("https://api.tvmaze.com/search/shows?q=a");
+  }
+
+  public searchShows(query: string): Observable<Show[]> {
+    return this.httpClient.get<Show[]>(`https://api.tvmaze.com/search/shows?q=${query}`);
+  }
 }
