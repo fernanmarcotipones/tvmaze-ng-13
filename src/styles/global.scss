@@ -1,0 +1,12 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
+*, body {
+  padding: 0;
+  margin: 0;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
