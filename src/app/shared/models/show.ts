@@ -7,28 +7,51 @@ export interface ShowDetails {
   id: number;
   url: string;
   name: string;
-  type: string;
   genres: string[];
   status: string;
-  runtime: number;
-  averageRuntime: number;
   premiered: string;
   ended: string;
   officialSite: string;
-  schedule: { days: string[] };
   rating: { average: number };
-  weight: number;
-  image: {
-    medium: string;
-    original: string;
+  image?: {
+    medium?: string;
+    original?: string;
   };
   summary: string;
-  updated: Date;
-  
 }
 
 export interface ShowsState {
   isLoading: boolean;
   shows: Show[];
   error: string | null;
+}
+
+export interface DetailState {
+  isLoading: boolean;
+  show: ShowDetails;
+  error: string | null;
+}
+
+export const DEFAULT_SHOW_DETAILS: ShowDetails = {
+  'id': 0,
+  'url': '',
+  'name': '',
+  'genres': [],
+  'status': '',
+  'premiered': '',
+  'ended': '',
+  'officialSite': '',
+  'rating': {
+    'average': 0,
+  },
+  'image': {
+    'medium': '',
+    'original': '',
+  },
+  'summary': '',
+}
+
+export const DEFAULT_SHOW: Show = {
+  'score': 0,
+  'show': DEFAULT_SHOW_DETAILS,
 }

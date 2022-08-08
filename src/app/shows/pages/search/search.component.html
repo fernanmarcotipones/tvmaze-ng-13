@@ -4,4 +4,4 @@
     <input [(ngModel)]="query" type="text" class="form-control" (keyup)="search()">
   </div>
 </div>
-<tvm-show-list [shows]="shows$ | async"></tvm-show-list>
+<tvm-show-list [shows]="shows$ | async" (onDetail)="showDetail($event)"></tvm-show-list>

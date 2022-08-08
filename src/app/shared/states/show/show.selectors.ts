@@ -1,19 +1,36 @@
 import { createSelector } from "@ngrx/store";
 import { AppState } from "../../models/appState";
 
-export const selectFeature = (state: AppState) => state.shows;
+export const showsFeature = (state: AppState) => state.shows;
 
-export const isLoadingSelector = createSelector(
-  selectFeature,
+export const showsLoadingSelector = createSelector(
+  showsFeature,
   (state) => state.isLoading
 );
 
 export const showsSelector = createSelector(
-  selectFeature,
+  showsFeature,
   (state) => state.shows
 );
 
-export const errorSelector = createSelector(
-  selectFeature,
+export const showsErrorSelector = createSelector(
+  showsFeature,
+  (state) => state.error
+);
+
+export const detailFeature = (state: AppState) => state.detail;
+
+export const detailLoadingSelector = createSelector(
+  detailFeature,
+  (state) => state.isLoading
+);
+
+export const detailSelector = createSelector(
+  detailFeature,
+  (state) => state.show
+);
+
+export const detailErrorSelector = createSelector(
+  detailFeature,
   (state) => state.error
 );

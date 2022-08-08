@@ -11,31 +11,31 @@ export class ShowEffects {
     private showService: ShowService
   ) {}
 
-  getShows$ = createEffect(() =>
+  searchShows$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(ShowActions.getShows),
-      mergeMap(() => {
-        return this.showService.getShows().pipe(
-          map((shows) => ShowActions.getShowsSuccess({ shows })),
+      ofType(ShowActions.searchShowsRequest),
+      mergeMap(action => {
+        return this.showService.searchShows(action.query).pipe(
+          map((shows) => ShowActions.searchShowsSuccess({ shows })),
           catchError((error) =>
-            of(ShowActions.getShowsFailure({ error: error.message }))
+            of(ShowActions.searchShowsFailure({ error: error.message }))
           )
         );
       })
     )
   );
 
-  searchShows$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(ShowActions.searchShowsRequest),
-    mergeMap((action) => {
-      return this.showService.searchShows(action.query).pipe(
-        map((shows) => ShowActions.searchShowsSuccess({ shows })),
-        catchError((error) =>
-          of(ShowActions.searchShowsFailure({ error: error.message }))
-        )
-      );
-    })
-  )
-);
+  getShow$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ShowActions.getShowRequest),
+      mergeMap(action => {
+        return this.showService.getShow(action.id).pipe(
+          map((show) => ShowActions.getShowSuccess({ show })),
+          catchError((error) =>
+            of(ShowActions.getShowFailure({ error: error.message }))
+          )
+        );
+      })
+    )
+  );
 }

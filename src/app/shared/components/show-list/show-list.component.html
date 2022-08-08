@@ -1,14 +1,14 @@
-<div class="row mt-5">
+<div *ngIf="shows?.length; else noData" class="row mt-5">
   <div *ngFor="let showDetails of shows" class="col-6 col-xs-4 col-md-3 col-xl-2 mb-3">
-    <div class="show d-flex flex-column" [ngStyle]="{'background-image': 'url(' + showDetails.show.image.original + ')'}">
+    <div class="show d-flex flex-column" [ngStyle]="{'background-image': 'url(' + showDetails.show.image?.original + ')'}">
       <div class="actions d-flex mb-auto">
-        <button type="button" class="btn btn-primary" title="Open Details">
+        <button type="button" class="btn btn-primary" title="Show Details" (click)="showDetail(showDetails.show.id)">
           <i class="fa fa-arrow-up-right-from-square"></i>
         </button>
-        <button type="button" class="btn btn-success" title="Bookmark">
+        <button type="button" class="btn btn-success" title="Bookmark" (click)="bookmarkShow(showDetails.show.id)">
           <i class="fa fa-bookmark"></i>
         </button>
-        <button type="button" class="btn btn-danger" title="Delete">
+        <button type="button" class="btn btn-danger" title="Delete" (click)="deleteShow(showDetails.show.id)">
           <i class="fa fa-trash"></i>
         </button>
       </div>
@@ -16,3 +16,8 @@
     </div>
   </div>
 </div>
+<ng-template #noData>
+  <div class="mt-5 flex-center">
+    <h1 class="font-weight-bold">No Results</h1>
+  </div>
+</ng-template>

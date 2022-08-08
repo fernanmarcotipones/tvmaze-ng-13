@@ -1,25 +1,28 @@
 import { createAction, props } from "@ngrx/store";
-import { Show } from "../../models/show";
-
-export const getShows = createAction('[Posts] Get Shows');
-export const getShowsSuccess = createAction(
-  '[Posts] Get Shows success',
-  props<{ shows: Show[] }>()
-);
-export const getShowsFailure = createAction(
-  '[Posts] Get Shows failure',
-  props<{ error: string }>()
-);
+import { Show, ShowDetails } from "../../models/show";
 
 export const searchShowsRequest = createAction(
-  '[Show] Search Shows', 
+  '[Shows] Search Shows', 
   props<{ query: string }>()
 );
 export const searchShowsSuccess = createAction(
-  '[Show] Search Shows success',
+  '[Shows] Search Shows success',
   props<{ shows: Show[] }>()
 );
 export const searchShowsFailure = createAction(
-  '[Show] Search Shows failure',
+  '[Shows] Search Shows failure',
+  props<{ error: string }>()
+);
+
+export const getShowRequest = createAction(
+  '[Detail] Get Show',
+  props<{ id: number }>()
+);
+export const getShowSuccess = createAction(
+  '[Detail] Get Show success',
+  props<{ show: ShowDetails }>()
+);
+export const getShowFailure = createAction(
+  '[Detail] Get Show failure',
   props<{ error: string }>()
 );
