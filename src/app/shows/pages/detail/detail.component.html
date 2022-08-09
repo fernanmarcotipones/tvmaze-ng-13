@@ -1,3 +1,15 @@
-<div *ngIf="show$ | async as show">
-  {{show.name}}
+<div *ngIf="show$ | async as show" class="row">
+  <div class="col-4">
+    <img src="{{show.image?.original}}" alt="Show Image">
+  </div>
+  <div class="col-8">
+    {{show.name}}
+    {{show.ended}}
+    {{show.premiered}}
+    {{show.officialSite}}
+    {{show.status}}
+    {{show.url}}
+    {{show.rating.average}}
+    {{show.summary}}
+  </div>
 </div>

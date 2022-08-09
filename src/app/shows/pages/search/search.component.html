@@ -1,7 +1,9 @@
-<div class="row mt-5">
-  <div class="col col-md-6 mx-auto">
-    <h5 class="text-center mb-3">Search Your Favorite Shows</h5>
-    <input [(ngModel)]="query" type="text" class="form-control" (keyup)="search()">
-  </div>
-</div>
-<tvm-show-list [shows]="shows$ | async" (onDetail)="showDetail($event)"></tvm-show-list>
+<tvm-search-bar class="mt-5" title="Search All Shows" [query]="query$ | async" (onSearch)="search($event)"></tvm-search-bar>
+<tvm-show-list
+  class="mt-5"
+  [shows]="shows$ | async"
+  [saved]="saved$ | async"
+  (onDetail)="showDetail($event)"
+  (onBookmark)="addToSaved($event)"
+  (onDelete)="removeFromSaved($event)">
+</tvm-show-list>

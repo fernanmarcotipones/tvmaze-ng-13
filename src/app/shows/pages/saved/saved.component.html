@@ -1,1 +1,8 @@
-<p>saved works!</p>
+<tvm-search-bar class="mt-5" title="Search Your Saved Shows" [query]="query$ | async" (onSearch)="search($event)"></tvm-search-bar>
+<tvm-show-list 
+  class="mt-5" 
+  [shows]="results$ | async" 
+  [saved]="results$ | async" 
+  (onDetail)="showDetail($event)"
+  (onDelete)="removeFromSaved($event)">
+</tvm-show-list>

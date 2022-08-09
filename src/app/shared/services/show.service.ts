@@ -12,7 +12,7 @@ export class ShowService {
     return this.httpClient.get<ShowDetails>(`https://api.tvmaze.com/shows/${id}`);
   }
 
-  public searchShows(query: string): Observable<Show[]> {
+  public searchShows(query: string | null): Observable<Show[]> {
     return this.httpClient.get<Show[]>(`https://api.tvmaze.com/search/shows?q=${query}`);
   }
 }

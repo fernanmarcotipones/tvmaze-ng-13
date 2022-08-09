@@ -1,7 +1,7 @@
-import { DetailState, ShowsState } from "./show";
+import { DetailState, SavedState, ShowsState } from "./show";
 
 export interface AppState {
   shows: ShowsState;
-  saved: ShowsState;
+  saved: SavedState;
   detail: DetailState;
 }

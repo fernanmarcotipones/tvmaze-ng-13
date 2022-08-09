@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DetailComponent } from './detail.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { detailReducer } from 'src/app/shared/states/show/show.reducer';
-import { ShowEffects } from 'src/app/shared/states/show/show.effects';
+import { detailReducers } from './state/detail.reducers';
+import { DetailEffects } from './state/detail.effects';
 
 @NgModule({
   declarations: [
@@ -12,8 +12,8 @@ import { ShowEffects } from 'src/app/shared/states/show/show.effects';
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('detail', detailReducer),
-    EffectsModule.forFeature([ShowEffects]),
+    StoreModule.forFeature('detail', detailReducers),
+    EffectsModule.forFeature([DetailEffects]),
   ]
 })
 export class DetailModule { }

@@ -24,6 +24,11 @@ export interface ShowsState {
   isLoading: boolean;
   shows: Show[];
   error: string | null;
+  query: string | null;
+}
+
+export interface SavedState extends ShowsState {
+  results: Show[];
 }
 
 export interface DetailState {

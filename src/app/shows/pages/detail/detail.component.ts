@@ -4,8 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/shared/models/appState';
 import { ShowDetails } from 'src/app/shared/models/show';
-import { detailErrorSelector, detailLoadingSelector, detailSelector } from 'src/app/shared/states/show/show.selectors';
-import * as ShowActions from '../../../shared/states/show/show.actions';
+import * as DetailActions from './state/detail.actions';
+import { detailErrorSelector, detailLoadingSelector, detailSelector } from './state/detail.selectors';
 
 @Component({
   selector: 'tvm-detail',
@@ -33,7 +33,7 @@ export class DetailComponent implements OnInit {
 
   public ngOnInit(): void {
     this.showId = this.route.snapshot.params['id'];
-    this.store.dispatch(ShowActions.getShowRequest({ id: this.showId }));
+    this.store.dispatch(DetailActions.getShowRequest({ id: this.showId }));
   }
 
 }

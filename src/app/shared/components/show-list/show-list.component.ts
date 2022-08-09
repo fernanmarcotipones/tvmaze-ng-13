@@ -11,11 +11,14 @@ export class ShowListComponent implements OnInit {
   @Input()
   public shows: Show[] | null = [];
 
+  @Input()
+  public saved: Show[] | null = [];
+
   @Output()
   public onDetail = new EventEmitter<number>();
 
   @Output()
-  public onBookmark = new EventEmitter<number>();
+  public onBookmark = new EventEmitter<Show>();
 
   @Output()
   public onDelete = new EventEmitter<number>();
@@ -29,12 +32,17 @@ export class ShowListComponent implements OnInit {
     this.onDetail.emit(id);
   }
 
-  public bookmarkShow(id: number): void {
-    this.onBookmark.emit(id);
+  public bookmarkShow(show: Show): void {
+    this.onBookmark.emit(show);
   }
 
   public deleteShow(id: number): void {
     this.onDelete.emit(id);
+  }
+
+  public isSaved(id: number): boolean {
+    const show = this.saved?.find(item => item.show.id === id);
+    return !!show;
   }
 
 }

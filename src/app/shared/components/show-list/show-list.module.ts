@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ShowListComponent } from './show-list.component';
 
 @NgModule({
-  declarations: [
-    ShowListComponent,
-  ],
-  exports: [
-    ShowListComponent,
-  ],
+  declarations: [ShowListComponent],
+  exports: [ShowListComponent],
   imports: [
     CommonModule,
   ],

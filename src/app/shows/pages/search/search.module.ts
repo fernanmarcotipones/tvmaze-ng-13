@@ -5,8 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { ShowListModule } from 'src/app/shared/components/show-list/show-list.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { showReducer } from 'src/app/shared/states/show/show.reducer';
-import { ShowEffects } from 'src/app/shared/states/show/show.effects';
+import { searchReducers } from './state/search.reducers';
+import { SearchEffects } from './state/search.effects';
+import { SearchBarModule } from 'src/app/shared/components/search-bar/search-bar.module';
+import { savedReducers } from '../saved/state/saved.reducers';
+import { SavedEffects } from '../saved/state/saved.effects';
 @NgModule({
   declarations: [
     SearchComponent,
@@ -15,8 +18,10 @@ import { ShowEffects } from 'src/app/shared/states/show/show.effects';
     CommonModule,
     FormsModule,
     ShowListModule,
-    StoreModule.forFeature('shows', showReducer),
-    EffectsModule.forFeature([ShowEffects]),
+    SearchBarModule,
+    StoreModule.forFeature('shows', searchReducers),
+    StoreModule.forFeature('saved', savedReducers),
+    EffectsModule.forFeature([SearchEffects, SavedEffects]),
   ]
 })
 export class SearchModule { }
