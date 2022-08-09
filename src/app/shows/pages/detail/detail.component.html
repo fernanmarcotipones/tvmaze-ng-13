@@ -1,15 +1,36 @@
-<div *ngIf="show$ | async as show" class="row">
-  <div class="col-4">
+<div *ngIf="show$ | async as show" class="row mt-5">
+  <div class="show-image col-md-8 col-lg-4">
     <img src="{{show.image?.original}}" alt="Show Image">
   </div>
-  <div class="col-8">
-    {{show.name}}
-    {{show.ended}}
-    {{show.premiered}}
-    {{show.officialSite}}
-    {{show.status}}
-    {{show.url}}
-    {{show.rating.average}}
-    {{show.summary}}
+  <div class="col-lg-8">
+    <h1 class="font-weight-bold">{{show.name}}</h1>
+    <div class="show-detail">
+      <label>Genres: </label>
+      <span>{{show.genres.join(', ')}}</span>
+    </div>
+    <div class="show-detail">
+      <label>Status: </label>
+      <span>{{show.status}}</span>
+    </div>
+    <div class="show-detail">
+      <label>Premiered: </label>
+      <span>{{show.premiered}}</span>
+    </div>
+    <div class="show-detail">
+      <label>Ended: </label>
+      <span>{{show.ended || 'Ongoing'}}</span>
+    </div>
+    <div class="show-detail">
+      <label>Official Site: </label>
+      <a [href]="show.officialSite" target="_blank">{{show.officialSite}}</a>
+    </div>
+    <div class="show-detail">
+      <label>Url: </label>
+      <a [href]="show.url" target="_blank">{{show.url}}</a>
+    </div>
+    <div class="show-detail mt-3">
+      <label>Summary</label>
+      <div [innerHTML]="show.summary"></div>
+    </div>
   </div>
 </div>
