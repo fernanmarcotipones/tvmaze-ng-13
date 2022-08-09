@@ -1,4 +1,11 @@
-# TvmazeNg13
+# How to run
+
+`git clone https://github.com/fernanmarcotipones/tvmaze-ng-13.git`
+`git checkout main`
+`npm install`
+`ng serve`
+
+# TV Maze
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
