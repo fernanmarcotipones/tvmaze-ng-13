@@ -1,8 +1,8 @@
 # How to run
 
-`git clone https://github.com/fernanmarcotipones/tvmaze-ng-13.git`
-`git checkout main`
-`npm install`
+`git clone https://github.com/fernanmarcotipones/tvmaze-ng-13.git`\
+`git checkout main`\
+`npm install`\
 `ng serve`
 
 # TV Maze
